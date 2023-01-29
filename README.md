@@ -32,6 +32,8 @@ loginctl enable-linger $USER
 
 ### Ruby
 
+
+#### ASDF
 To setup ruby [`asdf`](https://asdf-vm.com/) is going to be used, which is a universal version-managemnt tool. 
 
 To install ruby on an Ubuntu 22.04 machine we need to install dependencies:
@@ -52,6 +54,12 @@ source ~/.bashrc
 asdf plugin add ruby
 asdf install ruby 3.2.0
 ```
+
+Eventually, instead of running `asdf install ruby 3.2.0` one can cd into the root of the project and just run `asdf install` which will install the required version of ruby.
+
+#### Rubocop VScode
+
+Additionally, under VScode, one can install [`ruby-rubocop`](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop), run `gem install rubocop` and open their user settings JSON file and paste: `"ruby.rubocop.executePath": "/home/USERNAME/.asdf/shims/` where `USERNAME` is replaced with their username.
 
 ### Development
 
