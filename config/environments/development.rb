@@ -67,4 +67,11 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Add initial ActionCable host
+  config.action_cable.allowed_request_origins = 'localhost:3000'
+
+  # Add a Caddy HTTPS host
+  config.hosts << 'scada.of.the.legendary.armor.quest'
+  config.action_cable.allowed_request_origins << 'scada.of.the.legendary.armor.quest'
 end
