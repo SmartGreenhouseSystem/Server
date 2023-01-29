@@ -30,4 +30,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore hidden variables
 /.env
+
+# Ignore NodeJS generated stuff
+/node_modules
