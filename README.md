@@ -2,6 +2,33 @@
 
 ## Installation of the server
 
+### Database
+
+This server is using a PostgreSQL Alpine database and the safest and fastest way to install one is to use podman in the userspace. 
+
+```bash
+podman run -dti --name postgresql-green-house -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:alpine
+```
+
+And then to create a service file in the user space to have the service constantly running:
+
+```bash
+mkdir -p ~/.config/systemd/user
+podman generate systemd postgresql-green-house --name > ~/.config/systemd/user/container-postgresql-green-house.service
+```
+
+To manually start the service during the current machine instance:
+
+```bash
+systemctl --user start container-postgresql-green-house.service
+```
+
+And to start the service every time after a system reboot:
+
+```bash
+systemctl --user enable container-postgresql-green-house.service --now
+loginctl enable-linger $USER
+```
 
 ### Development
 
