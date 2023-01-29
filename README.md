@@ -30,7 +30,7 @@ systemctl --user enable container-postgresql-green-house.service --now
 loginctl enable-linger $USER
 ```
 
-### Development
+### Ruby
 
 To setup ruby [`asdf`](https://asdf-vm.com/) is going to be used, which is a universal version-managemnt tool. 
 
@@ -53,25 +53,36 @@ asdf plugin add ruby
 asdf install ruby 3.2.0
 ```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Development
 
-Things you may want to cover:
+To install the dependencies in the project:
 
-* Ruby version
+```
+bundle
+```
 
-* System dependencies
+And to steup the database:
 
-* Configuration
+```
+rails db:setup
+```
 
-* Database creation
+## Up and running
 
-* Database initialization
+After the database has been created you can start the server by running:
 
-* How to run the test suite
+```bash
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+And access the server by going to:
 
-* Deployment instructions
+```bash
+localhost:3000
+```
 
-* ...
+Optionally you can access the console by running:
+
+```bash
+rails c
+```
