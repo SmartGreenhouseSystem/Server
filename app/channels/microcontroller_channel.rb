@@ -3,8 +3,8 @@ class MicrocontrollerChannel < ApplicationCable::Channel
     stream_from "controller_#{params[:mcid]}"
   end
 
-  def received(data)
-    puts "Dobio sam podatak + #{data['informacija']}"
+  def save(data)
+    Reading.create(name: data['name'], value: data['value'], recored_at: Time.at(data['recorded_at']))
   end
 
   def unsubscribed

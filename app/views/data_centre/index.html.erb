@@ -1,2 +1,11 @@
 <h1> Hello </h1>
 <p> <%= 1+1 %> </p>
+
+<table>
+<% @readings.each do |reading| %>
+  <%= reading.name %>
+  <%= reading.value %>
+  <%= reading.recored_at %>
+<% end %>
+
+</table>

@@ -1,4 +1,5 @@
 class DataCentreController < ApplicationController
-    def index
-    end
+  def index
+    @readings = Reading.all
+  end
 end
