@@ -4,7 +4,7 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def received(data)
-    puts 'Dobio sam podatak ' + data['informacija']
+    puts "Dobio sam podatak + #{data['informacija']}"
   end
 
   def unsubscribed
