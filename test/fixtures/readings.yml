@@ -3,9 +3,9 @@
 one:
   name: MyString
   value: 1.5
-  recored_at: 2023-01-30 15:57:34
+  recorded_at: 2023-01-30 15:57:34
 
 two:
   name: MyString
   value: 1.5
-  recored_at: 2023-01-30 15:57:34
+  recorded_at: 2023-01-30 15:57:34
