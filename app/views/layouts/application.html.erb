@@ -10,7 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="theme-dark">
+    <div class="page">
+      <%= render partial: '/layouts/navbar' %>
+      <div class="page-wrapper">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

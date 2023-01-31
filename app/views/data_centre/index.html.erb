@@ -1,19 +1,34 @@
-<h1> Tables testing </h1>
+<%= render "/layouts/page_header", page_title_pre: 'Overview', page_title: 'Dashboard' %>
 
+<%= render "/layouts/page_body" do %>
+    <div class="row row-deck row-cards">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Add Readings</h3>
+                </div>
 
-<table>
-<tr>
-    <th>Name </th>           
-    <th>Value </th>                      
-    <th>Date and time </th>
-</tr>
-<% @readings.each do |reading| %>
-<tr>
-<td>  <%= reading.name %> </td>
-<td>  <%= reading.value %> </td>
-<td>  <%= reading.recorded_at %> </td>
-</tr>
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                                <th>Date and Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @readings.each do |reading| %>
+                                <tr>
+                                    <td><%= reading.name %></td>
+                                    <td><%= reading.value %></td>
+                                    <td><%= reading.recorded_at %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>
-
-
-</table>
