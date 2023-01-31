@@ -1,0 +1,19 @@
+<h1> Tables testing </h1>
+
+
+<table>
+<tr>
+    <th>Name </th>           
+    <th>Value </th>                      
+    <th>Date and time </th>
+</tr>
+<% @readings.each do |reading| %>
+<tr>
+<td>  <%= reading.name %> </td>
+<td>  <%= reading.value %> </td>
+<td>  <%= reading.recorded_at %> </td>
+</tr>
+<% end %>
+
+
+</table>
