@@ -5,7 +5,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Add Readings</h3>
+					<h3 class="card-title">Show Devices</h3>
 				</div>
 
                 <div class="list-group list-group-flush">
@@ -13,14 +13,13 @@
                         <div class="list-group-item">
                             <div class="row align-items-left">
                                 <div class="col-auto">
-                                    
+                                    <%= render "signal", strength: device[:strength] %>
+                                </div>
+                                <div class="col text-truncate">
+                                    <%= device[:name] %>
                                 </div>
                             </div>
                         </div>
-                        <tr>
-                            <td><%= device[:strength] %></td>
-                            <td><%= device[:name] %></td>
-                        </tr>
                     <% end %>
                 </div>
 			</div>
