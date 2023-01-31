@@ -18,11 +18,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% @readings.each do |reading| %>
+							<% @measurements.each do |measurement| %>
 								<tr>
-									<td><%= reading.name %></td>
-									<td><%= reading.value %></td>
-									<td><%= reading.recorded_at %></td>
+									<td><%= measurement.name %></td>
+									<td><%= measurement.value %></td>
+									<td><%= measurement.recorded_at %></td>
 								</tr>
 							<% end %>
 						</tbody>

@@ -4,7 +4,7 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def save(data)
-    Reading.create(name: data['name'], value: data['value'], recorded_at: Time.at(data['recorded_at']))
+    Measurement.create(name: data['name'], value: data['value'], recorded_at: Time.at(data['recorded_at']))
   end
 
   def unsubscribed

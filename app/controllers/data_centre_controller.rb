@@ -1,5 +1,5 @@
 class DataCentreController < ApplicationController
   def index
-    @readings = Reading.all
+    @measurements = Measurement.all
   end
 end

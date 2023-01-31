@@ -1,5 +1,5 @@
 class RenameReadingToMeasurement < ActiveRecord::Migration[7.0]
   def change
-    rename_table :reading, :measurement
+    rename_table :readings, :measurements
   end
 end

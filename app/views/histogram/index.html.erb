@@ -2,20 +2,20 @@
 
 <%= render "/layouts/page_body" do %>
   <div class="row row-cards">
-    <% Reading.distinct.pluck(:name).each do |reading_name| %>
+    <% Measurement.distinct.pluck(:name).each do |measurement_name| %>
       <div class="col-12">
         <div class="card">
           <div class="card-body">
             <div class="d-flex">
-              <h3 class="card-title"><%= reading_name %></h3>
+              <h3 class="card-title"><%= measurement_name %></h3>
             </div>
             <div class="">
-                <% sample = Reading.where(name: reading_name).first %>
+                <% sample = Measurement.where(name: measurement_name).first %>
                 <%= line_chart(
-                  Reading.where(name: reading_name).group_by_second(:recorded_at).average(:value),
+                  Measurement.where(name: measurement_name).group_by_second(:recorded_at).average(:value),
                   colors: ['#097969', '#000'],
                   download: true,
-                  label: reading_name,
+                  label: measurement_name,
                   xtitle: 'Time',
                   ytitle: sample.measurement_type,
                   suffix: sample.unit
