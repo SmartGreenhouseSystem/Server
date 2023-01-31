@@ -69,9 +69,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Add initial ActionCable host
-  config.action_cable.allowed_request_origins = 'localhost:3000'
+  config.action_cable.allowed_request_origins = ['https://localhost:3000', 'http://localhost:3000', 'https://scada.of.the.legendary.armor.quest']
 
   # Add a Caddy HTTPS host
   config.hosts << 'scada.of.the.legendary.armor.quest'
-  config.action_cable.allowed_request_origins << 'scada.of.the.legendary.armor.quest'
 end
