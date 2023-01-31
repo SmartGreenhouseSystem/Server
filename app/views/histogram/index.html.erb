@@ -10,13 +10,15 @@
               <h3 class="card-title"><%= reading_name %></h3>
             </div>
             <div class="">
+                <% sample = Reading.where(name: reading_name).first %>
                 <%= line_chart(
                   Reading.where(name: reading_name).group_by_second(:recorded_at).average(:value),
                   colors: ['#097969', '#000'],
                   download: true,
-                  label: 'Temperature',
+                  label: reading_name,
                   xtitle: 'Time',
-                  ytitle: 'Temperature'
+                  ytitle: sample.measurement_type,
+                  suffix: sample.unit
                 ) %>
             </div>
           </div>
