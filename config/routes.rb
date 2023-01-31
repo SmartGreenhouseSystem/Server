@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "data_centre#index"
+
+  resources :devices, only: [:index]  
 end
