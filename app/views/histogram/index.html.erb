@@ -2,26 +2,27 @@
 
 <%= render "/layouts/page_body" do %>
   <div class="row row-cards">
-    <%= Reading.group_by(:name) %>
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex">
-            <h3 class="card-title">Title</h3>
-          </div>
-          <div class="">
-              <%= line_chart(
-                Reading.where(name: 'Temperature').group_by_second(:recorded_at).average(:value),
-                colors: ['#097969', '#000'],
-                download: true,
-                label: 'Temperature',
-                xtitle: 'Time',
-                ytitle: 'Temperature'
-              ) %>
+    <% Reading.distinct.pluck(:name).each do |reading_name| %>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex">
+              <h3 class="card-title"><%= reading_name %></h3>
+            </div>
+            <div class="">
+                <%= line_chart(
+                  Reading.where(name: reading_name).group_by_second(:recorded_at).average(:value),
+                  colors: ['#097969', '#000'],
+                  download: true,
+                  label: 'Temperature',
+                  xtitle: 'Time',
+                  ytitle: 'Temperature'
+                ) %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
 <% end %>
