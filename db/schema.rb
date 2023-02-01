@@ -15,20 +15,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_165651) do
   enable_extension "plpgsql"
 
   create_table "devices", force: :cascade do |t|
-    t.string "device_id"
-    t.string "name"
+    t.string "device_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_devices_on_device_id", unique: true
   end
 
   create_table "measurements", force: :cascade do |t|
-    t.string "name"
-    t.float "value"
-    t.datetime "recorded_at"
+    t.string "name", null: false
+    t.float "value", null: false
+    t.datetime "recorded_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "unit"
-    t.string "measurement_type"
+    t.string "unit", null: false
+    t.string "measurement_type", null: false
+    t.bigint "device_id", null: false
+    t.index ["device_id"], name: "index_measurements_on_device_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_165651) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "measurements", "devices"
 end
