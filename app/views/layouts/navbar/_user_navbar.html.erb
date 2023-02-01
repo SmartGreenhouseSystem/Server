@@ -32,13 +32,10 @@
                     <span class="avatar avatar-sm" style="background-image: url(<%= image_path('mood-smile.png') %>)"></span>
                     <div class="d-none d-xl-block ps-2">
                         <div><%= current_user.username %></div>
+                        <div class="mt-1 small text-muted"><%= current_user.email %></div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="#" class="dropdown-item">Status</a>
-                    <a href="./profile.html" class="dropdown-item">Profile</a>
-                    <a href="#" class="dropdown-item">Feedback</a>
-                    <div class="dropdown-divider"></div>
                     <%= link_to 'Edit profile', edit_user_registration_path,  class: 'dropdown-item' %>
                     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>  
                 </div>
