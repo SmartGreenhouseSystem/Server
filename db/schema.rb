@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_01_155126) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_01_155352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,13 +23,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_155126) do
   end
 
   create_table "measurements", force: :cascade do |t|
-    t.string "name"
-    t.float "value"
-    t.datetime "recorded_at"
+    t.string "name", null: false
+    t.float "value", null: false
+    t.datetime "recorded_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "unit"
-    t.string "measurement_type"
+    t.string "unit", null: false
+    t.string "measurement_type", null: false
   end
 
 end
