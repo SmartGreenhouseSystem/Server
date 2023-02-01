@@ -24,6 +24,9 @@ gem "chartkick"
 # Grouping for charts
 gem "groupdate"
 
+# Pagination
+gem 'kaminari'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
