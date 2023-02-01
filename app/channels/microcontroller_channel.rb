@@ -15,7 +15,7 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def update(data)  
-    Device.find(@device.id).update(rssi: data["RSSI"])
+    @device.rssi = data['RSSI']
   end
 
   def unsubscribed
