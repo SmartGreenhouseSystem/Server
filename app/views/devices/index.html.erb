@@ -13,11 +13,11 @@
                         <div class="list-group-item">
                             <div class="row align-items-left">
                                 <div class="col-auto dropdown">
-                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-label="Open device menu">
+                                    <span data-bs-toggle="dropdown">
                                         <%= render "signal", device: device %>
-                                    </a>
+                                    </span>
                                     <div class="dropdown-menu dropdown-menu-start dropdown-menu-arrow">
-                                        <span class="dropdown-item">RSSI: <%= device.active? ? device.rssi : 0 %></span>
+                                        <span class="dropdown-item">RSSI: <%= device.active? ? device.rssi : -100 %></span>
                                         <span class="dropdown-item">Signal: <%= device.active? ? [2*(device.rssi+100),100].min : 0 %>%</span>
                                     </div>
                                 </div>
