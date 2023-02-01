@@ -15,6 +15,7 @@
 class Device < ApplicationRecord
     validates :device_id, presence: true, uniqueness: true
     validates :name, presence: true
+    has_many :measurements
 
     def active?
         cache = cached_at

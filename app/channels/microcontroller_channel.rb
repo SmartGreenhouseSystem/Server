@@ -11,7 +11,14 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def save(data)
-    Measurement.create(name: data['name'], value: data['value'], recorded_at: Time.at(data['recorded_at']))
+    Measurement.create(
+      name: data['name'],
+      value: data['value'],
+      unit: data['unit'],
+      measurement_type: data['measurement_type'],
+      recorded_at: Time.at(data['recorded_at']),
+      device: @device
+    )
   end
 
   def update(data)  
