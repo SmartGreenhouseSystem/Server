@@ -41,7 +41,8 @@
                     <a href="#" class="dropdown-item">Feedback</a>
                     <div class="dropdown-divider"></div>
                     <a href="./settings.html" class="dropdown-item">Settings</a>
-                    <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                    <%= link_to 'Edit profile', edit_user_registration_path,  class: 'dropdown-item' %>
+                    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>  
                 </div>
             </div>
           </div>

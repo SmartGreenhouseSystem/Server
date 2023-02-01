@@ -73,4 +73,7 @@ Rails.application.configure do
 
   # Add a Caddy HTTPS host
   config.hosts << 'scada.of.the.legendary.armor.quest'
+
+  # Devise url option
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
