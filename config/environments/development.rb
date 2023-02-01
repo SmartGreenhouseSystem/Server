@@ -73,4 +73,10 @@ Rails.application.configure do
 
   # Add a Caddy HTTPS host
   config.hosts << 'scada.of.the.legendary.armor.quest'
+
+  # Redis support
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+
+  # Redis cache
+  config.action_controller.perform_caching = true
 end

@@ -10,6 +10,14 @@ This server is using a PostgreSQL Alpine database and the safest and fastest way
 podman run -dti --name postgresql-green-house -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:alpine
 ```
 
+### Redis
+
+For fast cache for devices redis is used.
+
+```bash
+podman run -dti --name redis-green-house -p 6379:6379 redis:alpine
+```
+
 And then to create a service file in the user space to have the service constantly running:
 
 ```bash
