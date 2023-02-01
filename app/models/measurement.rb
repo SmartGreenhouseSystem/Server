@@ -12,4 +12,9 @@
 #  updated_at       :datetime         not null
 #
 class Measurement < ApplicationRecord
+    validates :name, presence: true
+    validates :measurement_type, presence: true
+    validates :unit, presence: true
+    validates :value, presence: true
+    validates :recorded_at, presence: true
 end
