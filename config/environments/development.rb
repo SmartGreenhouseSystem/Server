@@ -76,4 +76,10 @@ Rails.application.configure do
 
   # Devise url option
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  # Redis support
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+
+  # Redis cache
+  config.action_controller.perform_caching = true
 end

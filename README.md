@@ -10,6 +10,14 @@ This server is using a PostgreSQL Alpine database and the safest and fastest way
 podman run -dti --name postgresql-green-house -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:alpine
 ```
 
+### Redis
+
+For fast cache for devices redis is used.
+
+```bash
+podman run -dti --name redis-green-house -p 6379:6379 redis:alpine
+```
+
 And then to create a service file in the user space to have the service constantly running:
 
 ```bash
@@ -60,6 +68,15 @@ Eventually, instead of running `asdf install ruby 3.2.0` one can cd into the roo
 #### Rubocop VScode
 
 Additionally, under VScode, one can install [`ruby-rubocop`](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop), run `gem install rubocop` and open their user settings JSON file and paste: `"ruby.rubocop.executePath": "/home/USERNAME/.asdf/shims/` where `USERNAME` is replaced with their username.
+
+### Environment setup
+
+In order to use the server a couple of environment varibles need to be set:
+
+```bash
+REDIS_URL=redis://localhost:6379
+```
+
 
 ### Development
 
