@@ -1,6 +1,21 @@
+# == Schema Information
+#
+# Table name: devices
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  device_id  :string           not null
+#
+# Indexes
+#
+#  index_devices_on_device_id  (device_id) UNIQUE
+#
 class Device < ApplicationRecord
-    validates :device_id, presence: true
+    validates :device_id, presence: true, uniqueness: true
     validates :name, presence: true
+    has_many :measurements
 
     def active?
         cache = cached_at
