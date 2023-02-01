@@ -3,10 +3,10 @@
 # Table name: devices
 #
 #  id         :bigint           not null, primary key
-#  name       :string
+#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  device_id  :string
+#  device_id  :string           not null
 #
 
 one:
