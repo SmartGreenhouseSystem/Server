@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: measurements
@@ -21,10 +23,10 @@
 #  fk_rails_...  (device_id => devices.id)
 #
 class Measurement < ApplicationRecord
-    validates :name, presence: true
-    validates :measurement_type, presence: true
-    validates :unit, presence: true
-    validates :value, presence: true
-    validates :recorded_at, presence: true
-    belongs_to :device
+  validates :name, presence: true
+  validates :measurement_type, presence: true
+  validates :unit, presence: true
+  validates :value, presence: true
+  validates :recorded_at, presence: true
+  belongs_to :device
 end

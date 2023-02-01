@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: devices
@@ -12,7 +14,7 @@
 #
 #  index_devices_on_device_id  (device_id) UNIQUE
 #
-require "test_helper"
+require 'test_helper'
 
 class DeviceTest < ActiveSupport::TestCase
   # test "the truth" do

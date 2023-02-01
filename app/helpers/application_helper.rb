@@ -1,9 +1,11 @@
-module ApplicationHelper
-    def active_navbar_selection?(name)
-        return controller_name == name ? 'active' : ''
-    end
+# frozen_string_literal: true
 
-    def inactive_device?(id)
-        Device.find(id).updated_at < (DateTime.now - 5.seconds)
-    end
+module ApplicationHelper
+  def active_navbar_selection?(name)
+    controller_name == name ? 'active' : ''
+  end
+
+  def inactive_device?(id)
+    Device.find(id).updated_at < (DateTime.now - 5.seconds)
+  end
 end

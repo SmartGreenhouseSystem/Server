@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -19,15 +21,15 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 
 # Charts for rails
-gem "chartkick"
+gem 'chartkick'
 
 # Grouping for charts
-gem "groupdate"
+gem 'groupdate'
 
 # Pagination
 gem 'kaminari'
 
-# Devise for authentication 
+# Devise for authentication
 gem 'devise'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

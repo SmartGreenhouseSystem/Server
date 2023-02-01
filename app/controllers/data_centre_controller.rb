@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DataCentreController < ApplicationController
   def index
     page = page_params[:page] || 1
