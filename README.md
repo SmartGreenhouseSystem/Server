@@ -69,6 +69,15 @@ Eventually, instead of running `asdf install ruby 3.2.0` one can cd into the roo
 
 Additionally, under VScode, one can install [`ruby-rubocop`](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop), run `gem install rubocop` and open their user settings JSON file and paste: `"ruby.rubocop.executePath": "/home/USERNAME/.asdf/shims/` where `USERNAME` is replaced with their username.
 
+### Environment setup
+
+In order to use the server a couple of environment varibles need to be set:
+
+```bash
+REDIS_URL=redis://localhost:6379
+```
+
+
 ### Development
 
 To install the dependencies in the project:
