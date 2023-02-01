@@ -8,8 +8,12 @@
 #  updated_at :datetime         not null
 #  device_id  :string           not null
 #
+# Indexes
+#
+#  index_devices_on_device_id  (device_id) UNIQUE
+#
 class Device < ApplicationRecord
-    validates :device_id, presence: true
+    validates :device_id, presence: true, uniqueness: true
     validates :name, presence: true
 
     def active?
