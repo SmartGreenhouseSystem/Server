@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: devices
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  device_id  :string
+#
 class Device < ApplicationRecord
     validates :device_id, presence: true
     validates :name, presence: true
