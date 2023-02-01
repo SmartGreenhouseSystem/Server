@@ -1,0 +1,3 @@
+<li class="page-item <%= current_page.first? ? 'disabled' : ''  %>">
+  <%= link_to render('/pagination/previous', url: url), url, rel: 'prev', remote: remote %>
+</li>

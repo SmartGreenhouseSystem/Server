@@ -1,0 +1,3 @@
+<li class="page-item">
+  <%= link_to_unless current_page.last?, render('/pagination/next', url: url), url, rel: 'next', remote: remote %>
+</li>

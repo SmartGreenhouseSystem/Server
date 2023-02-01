@@ -1,0 +1,34 @@
+<%= render "/layouts/page_header", page_title_pre: 'Overview', page_title: 'Devices' %>
+
+<%= render "/layouts/page_body" do %>
+	<div class="row row-cards">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">Show Devices</h3>
+				</div>
+
+                <div class="list-group list-group-flush">
+                    <% @devices.each do |device| %>
+                        <div class="list-group-item">
+                            <div class="row align-items-left">
+                                <div class="col-auto dropdown">
+                                    <span data-bs-toggle="dropdown">
+                                        <%= render "signal", device: device %>
+                                    </span>
+                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-arrow">
+                                        <span class="dropdown-item">RSSI: <%= device.active? ? device.rssi : -100 %></span>
+                                        <span class="dropdown-item">Signal: <%= device.active? ? [2*(device.rssi+100),100].min : 0 %>%</span>
+                                    </div>
+                                </div>
+                                <div class="col text-truncate">
+                                    <%= device[:name] %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+			</div>
+		</div>
+	</div>
+<% end %>

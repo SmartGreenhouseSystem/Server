@@ -1,13 +1,24 @@
 class MicrocontrollerChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "controller_#{params[:mcid]}"
+    @device =
+      Device.where(device_id: params[:mcid]).first_or_initialize.tap do |device|
+        device.name = params[:name]
+        device.rssi = -50
+        device.save
+      end
+
+    stream_for @device
   end
 
   def save(data)
-    Reading.create(name: data['name'], value: data['value'], recorded_at: Time.at(data['recorded_at']))
+    Measurement.create(name: data['name'], value: data['value'], recorded_at: Time.at(data['recorded_at']))
+  end
+
+  def update(data)  
+    Device.find(@device.id).update(rssi: data["RSSI"])
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    stop_stream_for @device
   end
 end
