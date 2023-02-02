@@ -19,10 +19,9 @@
 #  fk_rails_...  (api_key_id => api_keys.id)
 #
 class Device < ApplicationRecord
-  validates :device_id, presence: true, uniqueness: true
   validates :name, presence: true
   has_many :measurements
-  has_one :api_key
+  belongs_to :api_key
   has_one :user, through: :api_key
 
   def active?

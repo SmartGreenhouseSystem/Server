@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module ApplicationCable
+  # Handles all of the authorization for websocket connections.
   class Connection < ActionCable::Connection::Base
-    identified_by :current_user, :current_device
+    identified_by :current_user, :current_api_key
 
     def connect
       find_verified
@@ -11,26 +12,22 @@ module ApplicationCable
     private
 
     def find_verified
-      setup_controller if controller_id.present?
+      setup_api_key
       setup_user
 
-      reject_unauthorized_connection unless [current_user, current_device].any?
+      reject_unauthorized_connection unless [current_user, current_api_key].any?
     end
 
-    def controller_id
-      request.params[:device_id]
-    end
+    def setup_api_key
+      api_key = request.params[:api_key]
 
-    def setup_controller
-      self.current_device = Device.find_by_device_id(controller_id)
-      p current_device
+      return unless api_key.present?
+
+      self.current_api_key = ApiKey.find_by_value(api_key)
     end
 
     def setup_user
-      self.current_user =
-        if (verified_user = env['warden'].user)
-          verified_user
-        end
+      self.current_user = env['warden'].user
     end
   end
 end
