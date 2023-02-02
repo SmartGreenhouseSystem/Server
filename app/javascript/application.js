@@ -14,11 +14,12 @@ import * as bootstrap from "bootstrap"
 
 window.bootstrap = bootstrap
 
-$('form').on('submit', function(e) {
-    console.log('wowza!');
-    e.preventDefault();
-    return
-    let modal = bootstrap.Modal.getInstance($(this).closest('.modal'))
-    modal.hide()
-    $('div.modal-backdrop:nth-child(2)').remove()
-});
+document.addEventListener("turbo:load", () => {
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+        return
+        let modal = bootstrap.Modal.getInstance($(this).closest('.modal'))
+        modal.hide()
+        $('div.modal-backdrop:nth-child(2)').remove()
+    });    
+})
