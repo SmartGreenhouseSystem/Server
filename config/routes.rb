@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'data_centre#index'
 
-  resources :devices,   only: %i[index]
+  resources :devices,   only: %i[index update]
   resources :histogram, only: %i[index]
-  resources :api_keys, only:  %i[index create delete]
+  resources :api_keys,  only: %i[index create delete]
 end
