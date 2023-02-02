@@ -1,0 +1,16 @@
+	<div class="list-group-item actuator-row">
+        <div class="row align-items-center">
+            <div class="col-4">
+                <%= actuator[:name]%>
+            </div>
+            <div class="col-4">
+              <%= actuator[:consumption]%> W
+            </div>
+            <div class="col-4">
+                <label class="form-check form-switch">
+                    <input class="form-check-input actuator-element" type="checkbox" <%= actuator[:state] ? 'checked' : '' %> data-action="click->home#updateActuator">
+                    <span> <%= actuator[:state] ? 'ON' : 'OFF' %> </span>
+                </label>
+            </div>
+        </div>
+    </div>
