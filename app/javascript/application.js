@@ -4,10 +4,13 @@ import "controllers"
 import "chartkick"
 import "Chart.bundle"
 import "./tabler.min"
+import "channels"
+
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 
 import jquery from "jquery"
 
-window.jquery = jquery
 window.$ = jquery
 
 document.addEventListener("turbo:load", () => {

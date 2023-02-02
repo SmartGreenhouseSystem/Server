@@ -1,0 +1,26 @@
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class:'card card-md'}) do |f| %>
+  <div class="card-body">
+    <h2 class="card-title text-center mb-4">Forgot password</h2>
+    <p class="text-muted mb-4">Enter your email address and your password will be reset and emailed to you.</p>
+    <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", type: 'email', class: 'form-control' %>
+    </div>
+    <div class="form-footer">
+        <div class="actions">
+          <%= f.submit "Send me reset password instructions", class: 'btn btn-primary w-100' %>
+        </div>
+    </div>
+  </div>
+<% end %>
+<div class="text-center text-muted mt-3">
+  Forget it, <%= link_to "send me back", root_path %> to the sign in screen.
+</div>
+  
+         
+       
+
+
+
+

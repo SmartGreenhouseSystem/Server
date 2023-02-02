@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNotNulFieldsToMeasurements < ActiveRecord::Migration[7.0]
   def change
     change_column_null :measurements, :measurement_type, false
