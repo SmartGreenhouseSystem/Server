@@ -1,7 +1,7 @@
 <%= render "/layouts/page_header", page_title_pre: 'Overview', page_title: 'Data readings' %>
 
 <%= render "/layouts/page_body" do %>
-<div class="row row-deck row-cards">
+<div class="row row-deck row-cards" data-controller="home">
 		<div class="col-sm-6 col-lg-3">
 			<div class="card">
 				<div class="card-body">
@@ -59,13 +59,21 @@
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">
-				<h3 class="card-title">Actuators</h3>
+					<h3 class="card-title">Actuators</h3>
+					<div class="card-header col">
+						<div class="ms-auto text-muted">
+							Device:
+							<div class="ms-2 d-inline-block">
+								<input type="text" class="form-control form-control-sm" aria-label="Search" id="device_id">
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="list-group list-group-flush">
-					<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
-					<%= render 'actuator', actuator: actuator %>
-					<% end %>
-				</div>
+					<div class="list-group list-group-flush">
+						<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
+						<%= render 'actuator', actuator: actuator %>
+						<% end %>
+					</div>
 			</div>
 		</div>
 		<div class="col-12">
