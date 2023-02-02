@@ -2,12 +2,82 @@
 
 <%= render "/layouts/page_body" do %>
 	<div class="row row-deck row-cards">
+		<div class="col-sm-6 col-lg-3">
+			<div class="card">
+				<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div class="subheader">POWER CONSUMPTION</div>
+				</div>
+				<div class="d-flex align-items-baseline">
+					<div class="h1 mb-0 me-2">$4,300</div>
+					<div class="me-auto">
+					<span class="text-green d-inline-flex align-items-center lh-1">
+						8% <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17l6 -6l4 4l8 -8"></path><path d="M14 7l7 0l0 7"></path></svg>
+					</span>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="row row-deck row-cards">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-header">
+				<h3 class="card-title">Sensors</h3>
+				</div>
+				<div class="list-group list-group-flush">
+					<div class="list-group-item">
+						<div class="row align-items-center">
+							<div class="col-4">
+								#ime senzora
+							</div>
+							<div class="col-4">
+								#vrednost
+							</div>
+							<div class="col-4">
+								#simbol
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-header">
+				<h3 class="card-title">Actuators</h3>
+				</div>
+				<div class="list-group list-group-flush">
+					<div class="list-group-item">
+						<div class="row align-items-center">
+							<div class="col-4">
+								#ime aktuatora
+							</div>
+							<div class="col-4">
+								#ON/OFF 
+							</div>
+							<div class="col-4">
+								<label class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" checked="">
+								<span class="form-check-label">TURN OFF/ON</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="row row-deck row-cards">
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">Add Readings</h3>
 				</div>
-
 				<div class="table-responsive">
 					<table class="table card-table table-vcenter text-nowrap datatable">
 						<thead>

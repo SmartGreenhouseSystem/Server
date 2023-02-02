@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MicrocontrollerChannel < ApplicationCable::Channel
   def subscribed
     @device =
@@ -21,7 +23,7 @@ class MicrocontrollerChannel < ApplicationCable::Channel
     )
   end
 
-  def update(data)  
+  def update(data)
     @device.rssi = data['RSSI']
   end
 
