@@ -11,7 +11,7 @@
                 <div class="list-group list-group-flush">
                     <% @devices.each do |device| %>
                         <div class="list-group-item">
-                            <div class="row align-items-left">
+                            <div class="row align-items-center">
                                 <div class="col-auto dropdown">
                                     <span data-bs-toggle="dropdown">
                                         <%= render "signal", device: device %>
@@ -21,11 +21,15 @@
                                         <span class="dropdown-item">Signal: <%= device.active? ? [2*(device.rssi+100),100].min : 0 %>%</span>
                                     </div>
                                 </div>
-                                <div class="col text-truncate">
+                                <div class="col">
                                     <%= device[:name] %>
+                                </div>
+                                <div class="col-auto">
+                                    <%= link_to "Edit Device", "/asdf", class: 'btn', data: {'bs-toggle': 'modal', 'bs-target': "#modal-device-#{device.device_id}" } %>
                                 </div>
                             </div>
                         </div>
+                        <%= render 'control', device: device %>
                     <% end %>
                 </div>
 			</div>

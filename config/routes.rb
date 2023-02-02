@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :devices,   only: %i[index]
   resources :histogram, only: %i[index]
-  resources :api_keys, only: %i[index create delete]
+  resources :api_keys, only:  %i[index create delete]
 end
