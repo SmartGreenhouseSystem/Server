@@ -11,7 +11,6 @@ export default class extends Controller {
   connect() {
     this.subscription = consumer.subscriptions.create("HomeChannel", {
       connected() {
-        console.log('connected')
         // Called when the subscription is ready for use on the server
       },
   
@@ -36,5 +35,9 @@ export default class extends Controller {
 
     console.log(buffer);
     this.subscription.send({action: 'control', instruction: buffer, device_id: $('#device_id').val()});
+  }
+
+  disconnect() {
+    this.subscription.unsubscribe();
   }
 }

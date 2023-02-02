@@ -1,4 +1,4 @@
-<div class="modal modal-blur fade" id="modal-device-<%= device.id %>" tabindex="-1" style="display: none;" aria-modal="true" role="dialog">
+<div class="modal modal-blur fade" id="modal-device-<%= device.id %>" tabindex="-1" style="display: none;" aria-modal="true" role="dialog" data-controller="device-modal">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <%= form_for device, html: {class: 'modal-content'} do |f| %>
             <!-- TODO: Actually add the actualy form content which makes sense with this -->
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
-                <%= f.submit 'Update Device', class: 'btn btn-primary' %>
+                <%= f.submit 'Update Device', class: 'btn btn-primary', data: { action: 'click->device-modal#updateDevice' } %>
             </div>
         <% end %>
     </div>
