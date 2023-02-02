@@ -20,7 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class ApiKey < ApplicationRecord
-  validates :value, length: { is: 50 }, allow_blank: false
+  validates :value, length: { is: 50 }, allow_blank: false, uniqueness: true
   belongs_to :user
   has_one :device, dependent: :destroy
 end
