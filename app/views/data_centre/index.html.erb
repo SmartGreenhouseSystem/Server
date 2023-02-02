@@ -56,8 +56,14 @@
 		</div>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">
-				<h3 class="card-title">Actuators</h3>
+				<div class="card-header col">
+					<h3 class="card-title">Actuators</h3>
+					<div class="ms-auto text-muted">
+						Device:
+						<div class="ms-2 d-inline-block">
+							<input type="text" class="form-control form-control-sm" aria-label="Search" id="device_id">
+						</div>
+					</div>
 				</div>
 				<div class="list-group list-group-flush">
 					<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
