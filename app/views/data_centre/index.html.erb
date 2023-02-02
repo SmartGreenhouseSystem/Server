@@ -48,19 +48,9 @@
 				<h3 class="card-title">Sensors</h3>
 				</div>
 				<div class="list-group list-group-flush">
-					<div class="list-group-item">
-						<div class="row align-items-center">
-							<div class="col-4">
-								#ime senzora
-							</div>
-							<div class="col-4">
-								#vrednost
-							</div>
-							<div class="col-4">
-								#simbol
-							</div>	
-						</div>
-					</div>
+					<% [{name: 'MirkoSensor', value: 25.8}, {name: 'LukaSensor', value: 21.8}].each do |sensor| %>
+					<%= render 'sensor', sensor: sensor %>
+					<% end %>
 				</div>
 			</div>
 		</div>
