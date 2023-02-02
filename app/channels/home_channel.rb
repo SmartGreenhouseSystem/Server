@@ -2,7 +2,14 @@
 
 class HomeChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    stream_for current_user
+  end
+
+  def control(data)
+    ActionCable.server.broadcast(
+      "microcontroller:#{data['device_id']}",
+      { 'type': 'control', 'instruction': data['instruction'] }
+    )
   end
 
   def unsubscribed
