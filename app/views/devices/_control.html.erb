@@ -1,7 +1,7 @@
 <div class="modal modal-blur fade" id="modal-device-<%= device.device_id %>" tabindex="-1" style="display: none;" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <%= form_for device, html: {class: 'modal-content'} do |f| %>
-        <%# <div class="modal-content"> %>
+            <!-- TODO: Actually add the actualy form content which makes sense with this -->
             <div class="modal-header">
                 <h5 class="modal-title">Edit device: <%= device.name %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
