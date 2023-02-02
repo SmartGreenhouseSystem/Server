@@ -2,25 +2,26 @@
 
 # == Schema Information
 #
-# Table name: devices
+# Table name: api_keys
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
+#  value      :string(50)       not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  api_key_id :bigint           not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
-#  index_devices_on_api_key_id  (api_key_id) UNIQUE
+#  index_api_keys_on_user_id  (user_id)
+#  index_api_keys_on_value    (value) UNIQUE
 #
 # Foreign Keys
 #
-#  fk_rails_...  (api_key_id => api_keys.id)
+#  fk_rails_...  (user_id => users.id)
 #
 require 'test_helper'
 
-class DeviceTest < ActiveSupport::TestCase
+class ApiKeyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

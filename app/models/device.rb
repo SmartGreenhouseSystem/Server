@@ -8,16 +8,22 @@
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  device_id  :string           not null
+#  api_key_id :bigint           not null
 #
 # Indexes
 #
-#  index_devices_on_device_id  (device_id) UNIQUE
+#  index_devices_on_api_key_id  (api_key_id) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (api_key_id => api_keys.id)
 #
 class Device < ApplicationRecord
   validates :device_id, presence: true, uniqueness: true
   validates :name, presence: true
   has_many :measurements
+  has_one :api_key
+  has_one :user, through: :api_key
 
   def active?
     cache = cached_at

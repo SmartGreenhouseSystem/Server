@@ -12,16 +12,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_201_165_651) do
+ActiveRecord::Schema[7.0].define(version: 20_230_202_200_117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
+  create_table 'api_keys', force: :cascade do |t|
+    t.string 'value', limit: 50, null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_api_keys_on_user_id'
+    t.index ['value'], name: 'index_api_keys_on_value', unique: true
+  end
+
   create_table 'devices', force: :cascade do |t|
-    t.string 'device_id', null: false
     t.string 'name', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.index ['device_id'], name: 'index_devices_on_device_id', unique: true
+    t.bigint 'api_key_id', null: false
+    t.index ['api_key_id'], name: 'index_devices_on_api_key_id', unique: true
   end
 
   create_table 'measurements', force: :cascade do |t|
@@ -50,5 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_201_165_651) do
     t.index ['username'], name: 'index_users_on_username', unique: true
   end
 
+  add_foreign_key 'api_keys', 'users'
+  add_foreign_key 'devices', 'api_keys'
   add_foreign_key 'measurements', 'devices'
 end
