@@ -1,0 +1,19 @@
+<div id="device-row-<%= device.id %>" class="list-group-item">
+    <div class="row align-items-center">
+        <div class="col-auto dropdown">
+            <span data-bs-toggle="dropdown">
+                <%= render "signal", device: device %>
+            </span>
+            <div class="dropdown-menu dropdown-menu-start dropdown-menu-arrow">
+                <span class="dropdown-item">RSSI: <%= device.active? ? device.rssi : -100 %></span>
+                <span class="dropdown-item">Signal: <%= device.active? ? [2*(device.rssi+100),100].min : 0 %>%</span>
+            </div>
+        </div>
+        <div class="col">
+            <%= device.name %>
+        </div>
+        <div class="col-auto">
+            <%= link_to "Edit Device", edit_device_path(device), class: 'btn', data: { turbo_frame: 'modal' } %>
+        </div>
+    </div>
+</div>
