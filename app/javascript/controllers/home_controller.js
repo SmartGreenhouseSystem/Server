@@ -24,7 +24,7 @@ export default class extends Controller {
     });
   }
 
-  updateActuator() {
+  updateActuator(event) {
     var buffer = 0;
     for(let actuator of $('.actuator-element')) {
       buffer += actuator.checked
@@ -33,8 +33,8 @@ export default class extends Controller {
 
     buffer >>= 1
 
-    console.log(buffer);
-    this.subscription.send({action: 'control', instruction: buffer, device_id: $('#device_id').val()});
+    console.log(event.target);
+    this.subscription.send({action: 'control', instruction: buffer, device_id: $('#device-selector').find(':selected').val() });
   }
 
   disconnect() {
