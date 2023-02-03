@@ -6,17 +6,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     this.modal = new bootstrap.Modal(this.element);
-    console.log('connected!')
+    this.modal.show();
   }
 
-  updateDevice(event) {
-    console.log('a')
-    event.preventDefault();
-    // this.modal.hide();
+  updateDevice() {
+    this.modal.hide();
   }
 
   disconnect() {
     this.modal.hide();
-    console.log('disconnected')
   }
 }
