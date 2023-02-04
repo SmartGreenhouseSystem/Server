@@ -8,6 +8,8 @@ class DataCentreController < ApplicationController
     @pages = (@count / 15.to_f).ceil || 1
     @start = ((page.to_i - 1) * 15) + 1
     @end = @start + @measurements.count - 1
+
+    @sensors = Measurement.last(6).reverse
   end
 
   private

@@ -1,13 +1,16 @@
+
 <div class="list-group-item">
-    <div class="row align-items-center">
-        <div class="col-4">
-                <%= sensor[:name]%>
+    <% @sensors.each do |sensor| %>
+        <div class="row align-items-center">
+            <div class="col-4">
+                <%= sensor.name%>
+            </div>
+            <div class="col-4">
+                    <%= sensor.value%>
+            </div>
+            <div class="col-4">
+            <%=  sensor.name.include? "T" ? '°C' : '%' %>
+            </div>	
         </div>
-        <div class="col-4">
-                <%= sensor[:value]%>
-        </div>
-        <div class="col-4">
-            °C
-        </div>	
-    </div>
+    <% end %>
 </div>
