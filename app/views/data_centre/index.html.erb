@@ -1,126 +1,91 @@
 <%= render "/layouts/page_header", page_title_pre: 'Overview', page_title: 'Data readings' %>
-
 <%= render "/layouts/page_body" do %>
 <div class="row row-deck row-cards" data-controller="home">
-		<div class="col-sm-6 col-lg-3">
-			<div class="card">
-				<div class="card-body">
-					<div class="d-flex align-items-center">
-						<div class="header h2">POWER CONSUMPTION</div>
+	<div class="col-sm-6 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div class="header h2">POWER CONSUMPTION</div>
+				</div>
+				<div class="d-flex align-items-center" style = "padding-top: 40px">
+					<div class="h1 mb-0 me-2" style="font-size: 45px">440 KWh</div>
+				</div>
+				<div class="d-flex align-items-center">
+					<div class="me-auto" style = "padding-left: 5px; padding-top: 10px">
+					<span class="text-green d-inline-flex align-items-center lh-1 h2">
+						8% <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17l6 -6l4 4l8 -8"></path><path d="M14 7l7 0l0 7"></path></svg>
+					</span>
 					</div>
-					<div class="d-flex align-items-center" style = "padding-top: 40px">
-						<div class="h1 mb-0 me-2" style="font-size: 45px">440 KWh</div>
-					</div>
-					<div class="d-flex align-items-center">
-						<div class="me-auto" style = "padding-left: 5px; padding-top: 10px">
-						<span class="text-green d-inline-flex align-items-center lh-1 h2">
-							8% <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17l6 -6l4 4l8 -8"></path><path d="M14 7l7 0l0 7"></path></svg>
-						</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div class="header h2">ELECTRICITY BILL</div>
+				</div>
+				<div class="d-flex align-items-baseline" style = "padding-top: 40px">
+					<div class="h1" style="font-size: 45px">44000 RSD</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card">
+			<div class="card-body">
+				<a class="weatherwidget-io" href="https://forecast7.com/en/45d7719d12/sombor/" data-label_1="SOMBOR" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="weather_one" >SOMBOR WEATHER</a>
+				<script>
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+			<h3 class="card-title">Temperature</h3>
+			</div>
+			<div class="list-group list-group-flush">
+				<div class="list-group-item">
+					<%= render partial: 'data_centre/sensor', locals: {sensors: @temperatures} %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Actuators</h3>
+				<div class="card-header col">
+					<div class="ms-auto text-muted">
+						Device:
+						<div class="ms-2 d-inline-block">
+							<input type="text" class="form-control form-control-sm" aria-label="Search" id="device_id">
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-6 col-lg-3">
-			<div class="card">
-				<div class="card-body">
-					<div class="d-flex align-items-center">
-						<div class="header h2">ELECTRICITY BILL</div>
-					</div>
-					<div class="d-flex align-items-baseline" style = "padding-top: 40px">
-						<div class="h1" style="font-size: 45px">44000 RSD</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<div class="card">
-				<div class="card-body">
-					<a class="weatherwidget-io" href="https://forecast7.com/en/45d7719d12/sombor/" data-label_1="SOMBOR" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="weather_one" >SOMBOR WEATHER</a>
-					<script>
-					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-					</script>
-				</div>
-			</div>
-		</div>
-		<div class="col-6">
-			<div class="card">
-				<div class="card-header">
-				<h3 class="card-title">Sensors</h3>
-				</div>
 				<div class="list-group list-group-flush">
-					<div class="list-group-item">
-						<% @sensors.each do |sensor| %>
-							<div class="row align-items-center">
-								<div class="col-4">
-									<%= sensor.name%>
-								</div>
-								<div class="col-4">
-										<%= sensor.value%>
-								</div>
-								<div class="col-4">
-								<%=  sensor.name.include? "T" ? '°C' : '%' %>
-								</div>	
-							</div>
-						<% end %>
-					</div>
+					<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
+					<%= render 'actuator', actuator: actuator %>
+					<% end %>
+				</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+			<h3 class="card-title">Humidity</h3>
+			</div>
+			<div class="list-group list-group-flush">
+				<div class="list-group-item">
+					<%= render partial: 'data_centre/sensor', locals: {sensors: @humidities} %>
 				</div>
 			</div>
 		</div>
-		<div class="col-6">
-			<div class="card">
-				<div class="card-header">
-					<h3 class="card-title">Actuators</h3>
-					<div class="card-header col">
-						<div class="ms-auto text-muted">
-							Device:
-							<div class="ms-2 d-inline-block">
-								<input type="text" class="form-control form-control-sm" aria-label="Search" id="device_id">
-							</div>
-						</div>
-					</div>
-				</div>
-					<div class="list-group list-group-flush">
-						<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
-						<%= render 'actuator', actuator: actuator %>
-						<% end %>
-					</div>
-			</div>
-		</div>
-		<div class="col-12">
-			<div class="card">
-				<div class="card-header">
-					<h3 class="card-title">Add Readings</h3>
-				</div>
-				<div class="table-responsive">
-					<table class="table card-table table-vcenter text-nowrap datatable">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Date and Time</th>
-							</tr>
-						</thead>
-						<tbody>
-							<% @measurements.each do |measurement| %>
-								<tr>
-									<td><%= measurement.name %></td>
-									<td><%= measurement.value %></td>
-									<td><%= measurement.recorded_at %></td>
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
-				<div class="card-footer d-flex align-items-center">
-					<p class="m-0 text-muted">
-						Showing <span><%= @start %></span> to <span><%= @end %></span> of <span><%= @count %></span> entries
-					</p>
-					<%= paginate @measurements %>
-				</div>
-			</div>
-		</div>
+	</div>
 </div>
-
 <% end %>

@@ -2,19 +2,9 @@
 
 class DataCentreController < ApplicationController
   def index
-    page = page_params[:page] || 1
-    @measurements = Measurement.order('created_at DESC').page(page).per(15)
-    @count = Measurement.count
-    @pages = (@count / 15.to_f).ceil || 1
-    @start = ((page.to_i - 1) * 15) + 1
-    @end = @start + @measurements.count - 1
-
-    @sensors = Measurement.last(6).reverse
-  end
-
-  private
-
-  def page_params
-    params.permit(:page)
+    temperature_names = ['Atmospheric', 'Greenhouse', 'Pile room']
+    @temperatures = Measurement.where(name: temperature_names, measurement_type: 'T').order(created_at: :desc).limit(3)
+    humidity_names = ['Atmospheric', 'Greenhouse', 'Pile room']
+    @humidities = Measurement.where(name: humidity_names, measurement_type: 'H').order(created_at: :desc).limit(3)
   end
 end

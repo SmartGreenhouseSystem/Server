@@ -1,16 +1,16 @@
-
-<div class="list-group-item">
-    <% @sensors.each do |sensor| %>
+<% sensors.each do |sensor| %>
+    <div class="list-group-item">
         <div class="row align-items-center">
             <div class="col-4">
                 <%= sensor.name%>
             </div>
             <div class="col-4">
-                    <%= sensor.value%>
+                    <%= sprintf("%.1f", sensor.value) %>
             </div>
             <div class="col-4">
-            <%=  sensor.name.include? "T" ? '°C' : '%' %>
+                    <%= sensor.unit%>
             </div>	
         </div>
-    <% end %>
-</div>
+    </div>
+<% end %>
+

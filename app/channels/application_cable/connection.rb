@@ -14,10 +14,11 @@ module ApplicationCable
       setup_controller if controller_id.present?
       setup_user
    
-      #reject_unauthorized_connection unless [self.current_user, self.current_device].any?
+      reject_unauthorized_connection unless [self.current_user, self.current_device].any?
     end
 
     def controller_id
+      p request.params[:device_id]
       request.params[:device_id]
     end
 

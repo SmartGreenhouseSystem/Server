@@ -12,8 +12,20 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def save(data)
+
+    case data['name']
+      when 'A'
+        measurement_name = 'Atmospheric'
+      when 'G'
+        measurement_name = 'Greenhouse'
+      when 'P'
+        measurement_name = 'Pile room'
+      else 
+        measurement_name = "Measurement ->" + data['name']
+    end
+
     Measurement.create(
-      name: data['name'],
+      name: measurement_name,
       value: data['value'],
       unit: data['unit'],
       measurement_type: data['measurement_type'],

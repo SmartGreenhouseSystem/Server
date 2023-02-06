@@ -1,30 +1,40 @@
 <%= render "/layouts/page_header", page_title_pre: 'Overview', page_title: 'Histogram' %>
 
 <%= render "/layouts/page_body" do %>
-  <div class="row row-cards">
-    <% Measurement.distinct.pluck(:name).each do |measurement_name| %>
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex">
-              <h3 class="card-title"><%= measurement_name %></h3>
-            </div>
-            <div class="">
-                <% sample = Measurement.where(name: measurement_name).first %>
-                <%= line_chart(
-                  Measurement.where(name: measurement_name).group_by_second(:recorded_at).average(:value),
-                  colors: ['#097969', '#000'],
-                  download: true,
-                  label: measurement_name,
-                  xtitle: 'Time',
-                  ytitle: sample.measurement_type,
-                  suffix: sample.unit
-                ) %>
-            </div>
-          </div>
-        </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Measurement readings</h3>
       </div>
-    <% end %>
+      <input type="text" id="search-input">
+      <div class="table-responsive">
+        <table class="table card-table table-vcenter text-nowrap datatable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+              <th>Unit</th>
+              <th>Date and Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @measurements.each do |measurement| %>
+              <tr>
+                <td><%= measurement.name %></td>
+                <td><%= sprintf("%.1f", measurement.value) %></td>
+                <td><%= measurement.unit %></td>
+                <td><%= measurement.recorded_at %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer d-flex align-items-center">
+        <p class="m-0 text-muted">
+          Showing <span><%= @start %></span> to <span><%= @end %></span> of <span><%= @count %></span> entries
+        </p>
+        <%= paginate @measurements %>
+      </div>
+    </div>
   </div>
-
 <% end %>
