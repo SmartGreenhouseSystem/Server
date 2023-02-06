@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: actuators
+#
+#  id          :bigint           not null, primary key
+#  consumption :integer
+#  name        :string
+#  state       :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  state: false
+  consumption: 1
+
+two:
+  name: MyString
+  state: false
+  consumption: 1

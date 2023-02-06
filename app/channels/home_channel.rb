@@ -12,6 +12,16 @@ class HomeChannel < ApplicationCable::Channel
     )
   end
 
+  def save(actuator)
+    Actuator.create(
+      name: actuator['name'],
+      state: actuator['state'],
+      consumption: actuator['consumption'],
+      recorded_at: Time.Now(),
+      device: @device
+    )
+  end
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
