@@ -6,9 +6,21 @@
       <div class="card-header">
         <h3 class="card-title">Measurement readings</h3>
       </div>
-      <input type="text" id="search-input">
+      <div class="mb-3">
+        <div class="form-label">Filter</div>
+          <select class="form-select" id="filterType">
+            <option disabled selected>Select</option>
+            <option value="T">Temperature</option>
+            <option value="H">Humidity</option>
+            <option value='all'>All</option>
+          </select>
+      </div>
+      <div class="mb-3"> 
+        <label class="form-label">Measurement name </label>
+        <input class="form-control" id="inputName" type="text" placeholder="Search Here.."> </div>
+      </div>
       <div class="table-responsive">
-        <table class="table card-table table-vcenter text-nowrap datatable">
+        <table id = "measurementTable" class="table card-table table-vcenter text-nowrap datatable">
           <thead>
             <tr>
               <th>Name</th>
@@ -20,6 +32,7 @@
           <tbody>
             <% @measurements.each do |measurement| %>
               <tr>
+                <td id = "column-to-get"><%= measurement.measurement_type %></td>
                 <td><%= measurement.name %></td>
                 <td><%= sprintf("%.1f", measurement.value) %></td>
                 <td><%= measurement.unit %></td>
