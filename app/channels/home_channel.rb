@@ -6,6 +6,8 @@ class HomeChannel < ApplicationCable::Channel
   end
 
   def control(data)
+    return unless current_user.devices.where(id: data['device_id'])
+
     ActionCable.server.broadcast(
       "microcontroller:#{data['device_id']}",
       { 'type': 'control', 'instruction': data['instruction'] }

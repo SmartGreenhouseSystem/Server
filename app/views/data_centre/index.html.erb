@@ -45,7 +45,7 @@
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">
-				<h3 class="card-title">Sensors</h3>
+					<h3 class="card-title">Sensors</h3>
 				</div>
 				<div class="list-group list-group-flush">
 					<% [{name: 'MirkoSensor', value: 25.8}, {name: 'LukaSensor', value: 21.8}].each do |sensor| %>
@@ -56,17 +56,16 @@
 		</div>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header col">
-					<h3 class="card-title">Actuators</h3>
-					<div class="ms-auto text-muted">
-						Device:
-						<div class="ms-2 d-inline-block">
-							<input type="text" class="form-control form-control-sm" aria-label="Search" id="device_id">
-						</div>
-					</div>
+				<div class="card-header">
+					<h3 class="card-title mb-3 col-lg-6">Actuators</h3>
+					<select class="ms-2 form-select" id="device-selector">
+						<%= current_user.devices.each do |device| %>
+							<option value="<%= device.id %>"><%= device.name %></option>
+						<% end %>
+					</select>
 				</div>
 				<div class="list-group list-group-flush">
-					<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
+					<% [{name: 'Actuator 1', state: true, consumption: 40}, {name: 'Actuator 2', state: false, consumption: 50}].each do |actuator| %>
 					<%= render 'actuator', actuator: actuator %>
 					<% end %>
 				</div>

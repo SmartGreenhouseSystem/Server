@@ -26,4 +26,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
+  has_many :api_keys, dependent: :destroy
+  has_many :devices, through: :api_keys, source: :device
 end

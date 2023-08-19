@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
+# Websocket for Microcontrollers
 class MicrocontrollerChannel < ApplicationCable::Channel
   def subscribed
-    @device = Device.where(device_id: params[:mcid]).first_or_initialize.tap do |device|
+    @device = Device.find_or_create_by(api_key: current_api_key) do |device|
       device.name = params[:name]
-      device.rssi = -50
-      device.save
     end
 
-    stream_from "microcontroller:#{@device.device_id}"
+    # Make sure that the device is saved in the REDIS database
+    @device.rssi = -50
+
+    stream_from "microcontroller:#{@device.id}"
   end
 
   def save(data)
@@ -27,6 +29,6 @@ class MicrocontrollerChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    stop_stream_from "microcontroller:#{@device.device_id}"
+    stop_stream_from "microcontroller:#{@device.id}"
   end
 end
