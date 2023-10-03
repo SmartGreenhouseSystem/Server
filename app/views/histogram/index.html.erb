@@ -12,7 +12,7 @@
             <div class="">
                 <% sample = Measurement.where(name: measurement_name).first %>
                 <%= line_chart(
-                  Measurement.where(name: measurement_name).group_by_second(:recorded_at).average(:value),
+                  Measurement.where(name: measurement_name).where('created_at > ?', DateTime.now - 7.days).group_by_hour(:recorded_at).average(:value),
                   colors: ['#097969', '#000'],
                   download: true,
                   label: measurement_name,
