@@ -35,6 +35,6 @@ export default class extends Controller {
     buffer >>= 1
 
     console.log(buffer);
-    this.subscription.send({action: 'control', instruction: buffer, device_id: $('#device_id').val()});
+    this.subscription.send({action: 'control', instruction: buffer, device_id: 1});
   }
 }

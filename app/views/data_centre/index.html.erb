@@ -66,7 +66,7 @@
 					</div>
 				</div>
 				<div class="list-group list-group-flush">
-					<% [{name: 'MirkoAutomat', state: true, consumption: 40}, {name: 'LukaAutomat', state: false, consumption: 50}].each do |actuator| %>
+					<% [{name: 'Sijalica', state: true, consumption: 40}, {name: 'Ventilator', state: false, consumption: 50}, {name: 'Pumpe', state: false, consumption: 30}].each do |actuator| %>
 					<%= render 'actuator', actuator: actuator %>
 					<% end %>
 				</div>
